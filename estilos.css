@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #0b0e11;
+  background-image: url("https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.puntos {
+  position: relative;
+  display: flex;
+}
+.puntos span {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background: #00d0ff;
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #4fc3dc44, 0 0 10px #4fc3dc, 0 0 100px #4fc3dc;
+  animation: animacion 15s linear infinite;
+  animation-duration: calc(200s / var(--i));
+}
+.puntos span:nth-child(even) {
+  background: rgba(251, 255, 0, 0.7);
+  box-shadow: 0 0 0 10px rgba(255, 166, 1, 0.1), 0 0 4px rgba(251, 255, 0, 0.2),
+    0 0 100px rgba(251, 255, 0, 0.1);
+}
+
+.flor-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.flor-container h1 {
+  color: white;
+  font-size: 22px;
+  font-family: "Sofia";
+}
+#flor {
+  width: 300px;
+  animation: giro 20s linear infinite;
+}
+
+@keyframes giro {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animacion {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+  }
+}
+@media (max-width: 768px) {
+  #flor {
+    width: 200px;
+  }
+  .puntos span {
+    display: none;
+  }
+
+  .puntos span:nth-child(-n + 25) {
+    display: inline-block;
+  }
+  .flor-container h1 {
+    font-size: 12px;
+  }
+}
